@@ -1,0 +1,71 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header text-center">
+      <h1 class="text-center">Welcome</h1>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-4 sidenav">
+      <a class="pb-2" (click)="totalBooksList()">Books List</a><br>
+      <a class="pb-2" (click)="totalBooksReview()">Books Reviews</a><br>
+      <a class="pb-2" (click)="archievList()">Archievs</a>
+    </div>
+    <div class="col-sm-8 text-left">
+      
+      <div class="bookShow">
+        <div class="list-block" *ngIf="bookShow">
+        <h3 class="align-item-center">Books List</h3>
+        <table>
+          <tr>
+            <th>Book Name</th>
+            <th>Newest Publish Date</th>
+            <th>Oldest Publish Date</th>
+            <th>Update</th>
+          </tr>
+          <tr *ngFor='let list of booksList?.results'>
+            <td>{{list?.display_name}}</td>
+            <td>{{list?.newest_published_date}}</td>
+            <td>{{list?.oldest}}</td>
+            <td>{{list?.updated}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="list-block" *ngIf="reviewShow">
+        <h3 class="align-item-center">Books Reviews</h3>
+        <table>
+          <tr>
+            <th>Book Title</th>
+            <th>Book Author</th>
+            <th>Review URL</th>
+          </tr>
+          <tr *ngFor='let list of booksReview?.results'>
+            <td>{{list?.book_title}}</td>
+            <td>{{list?.book_author}}</td>
+            <td>{{list?.url}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="list-block" *ngIf="archievShow">
+        <h3 class="align-item-center">Archievs Gallery</h3>
+        <table>
+          <tr>
+            <th>Archive Source</th>
+            <th>Abstract</th>
+            <th>WEB URL</th>
+          </tr>
+          <tr *ngFor='let list of archiev?.response?.docs'>
+            <td>{{list?.abstract}}</td>
+            <td>{{list?.source}}</td>
+            <td>{{list?.web_url}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+</div>
